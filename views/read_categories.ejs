@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Categories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+    }
+    .empty {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Categories</h1>
+
+  <% if (categories && categories.length > 0) { %>
+    <ul>
+      <% categories.forEach(category => { %>
+        <li>
+          <strong><%= category.name %></strong><br>
+          <% if (category.description) { %>
+            <small><%= category.description %></small>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p class="empty">No categories found.</p>
+  <% } %>
+
+</body>
+</html>
