@@ -1,16 +1,12 @@
 const pool = require("./pool");
 
-async function getCategories(name) {
+async function getCategories() {
 	const { rows } = await pool.query("SELECT * FROM categories");
 	return rows;
 }
 async function insertCategory(name) {
 	await pool.query("INSERT INTO categories (name) VALUES($1)", [name]);
 }
-// async function findAllCategories(){
-// 	const {rows} = await pool.query();
-// 	return rows;
-// }
 async function updateCategory(name) { }
 async function deleteCategory(name) { }
 
