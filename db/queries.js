@@ -7,7 +7,9 @@ async function getCategories() {
 async function insertCategory(name) {
 	await pool.query("INSERT INTO categories (name) VALUES($1)", [name]);
 }
-async function updateCategory(name) { }
+async function updateCategory(id, newName) {
+	await pool.query("UPDATE categories SET name = $1 WHERE id = $2", [newName, id]);
+}
 async function deleteCategory(name) { }
 
 async function getItem(name) { }

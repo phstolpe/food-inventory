@@ -34,9 +34,9 @@
       <% categories.forEach(category => { %>
         <li>
           <strong><%= category.name %></strong><br>
-          <% if (category.description) { %>
-            <small><%= category.description %></small>
-          <% } %>
+        <a href= "/categories/<%= category.id %>/edit">
+          <button>Update category name</button>
+          </a>
         </li>
       <% }) %>
     </ul>

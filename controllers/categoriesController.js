@@ -17,9 +17,15 @@ function showCreateCategoryForm(req, res) {
 }
 
 async function updateCategory(req, res) {
-	const { name } = req.body;
-	await db.updateCategory(name);
+	const id = req.params.id;
+	const { newName } = req.body;
+	await db.updateCategory(id, newName);
 	res.redirect("/categories");
+}
+
+function showUpdateCategoryForm(req, res) {
+	const { id } = req.params;
+	res.render("update_category", { id: id });
 }
 
 //items
@@ -27,5 +33,7 @@ async function updateCategory(req, res) {
 module.exports = {
 	createCategory,
 	findAllCategories,
-	showCreateCategoryForm
+	showCreateCategoryForm,
+	updateCategory,
+	showUpdateCategoryForm
 }
