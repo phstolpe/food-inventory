@@ -3,7 +3,6 @@ const db = require("../db/queries");
 async function findAllItems(req, res) {
 	const items = await db.getItems();
 	res.render("read_items", { items: items });
-
 }
 
 async function insertItem(req, res) {
@@ -17,9 +16,23 @@ async function showCreateItemForm(req, res) {
 	res.render("create_items", { categories: categories });
 }
 
+function showUpdateItemForm(req, res) {
+	const { id } = req.params;
+	res.render("update_item", { id: id });
+}
+
+async function updateItem(req, res) {
+	const { id } = req.params;
+	const { newName } = req.body;
+	await db.updateItem(id, newName);
+	res.redirect("/items");
+}
+
 module.exports = {
 	findAllItems,
 	insertItem,
-	showCreateItemForm
+	showCreateItemForm,
+	showUpdateItemForm,
+	updateItem,
 
 }

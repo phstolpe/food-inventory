@@ -46,6 +46,10 @@
           <tr>
             <td><%= item.name %></td>
             <td><%= item.category_name %></td>
+            <td>
+            <a href="/items/<%= item.id %>/edit"><button>Update</button></a>
+          </td>
+
           </tr>
         <% }) %>
       </tbody>

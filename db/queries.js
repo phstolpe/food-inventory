@@ -16,13 +16,15 @@ async function deleteCategory(name) {
 }
 
 async function getItems() {
-	const { rows } = await pool.query("SELECT items.name, categories.name AS category_name FROM items JOIN categories ON items.category_id = categories.id");
+	const { rows } = await pool.query("SELECT items.name, items.id, categories.name AS category_name FROM items JOIN categories ON items.category_id = categories.id");
 	return rows;
 }
 async function insertItem(name, category_id) {
 	await pool.query("INSERT INTO items (name, category_id) VALUES($1, $2)", [name, category_id]);
 }
-async function updateItem(name) { }
+async function updateItem(id, newName) {
+	await pool.query("UPDATE items SET name = $1 WHERE id = $2", [newName, id]);
+}
 async function deleteItem(name) { }
 
 module.exports = {

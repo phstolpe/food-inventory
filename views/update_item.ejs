@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Category</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+    form {
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<button onclick="history.back()">← Back</button>
+  <h1>Update Item</h1>
+
+  <form action="/items/<%= id %>" method="POST">
+    <label for="name">Item Name</label>
+    <input 
+      type="text" 
+      id="newName" 
+      name="newName" 
+      required 
+    />
+
+    <button type="submit">Update</button>
+  </form>
+
+</body>
+</html>
+
