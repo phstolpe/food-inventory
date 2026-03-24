@@ -37,6 +37,9 @@
           <strong><%= category.name %></strong><br>
         <a href= "/categories/<%= category.id %>/edit">
           <button>Update category name</button>
+          <form action="/categories/<%= category.id %>/delete" method="POST">
+            <button>Delete</button>
+          </form>
           </a>
         </li>
       <% }) %>

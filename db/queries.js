@@ -10,9 +10,8 @@ async function insertCategory(name) {
 async function updateCategory(id, newName) {
 	await pool.query("UPDATE categories SET name = $1 WHERE id = $2", [newName, id]);
 }
-async function deleteCategory(name) {
-	const { rows } = await pool.query("SELECT * FROM items");
-	return rows;
+async function deleteCategory(id) {
+	await pool.query("DELETE FROM categories WHERE id = $1", [id]);
 }
 
 async function getItems() {

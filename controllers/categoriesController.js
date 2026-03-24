@@ -28,12 +28,16 @@ function showUpdateCategoryForm(req, res) {
 	res.render("update_category", { id: id });
 }
 
-//items
-
+async function removeCategory(req, res) {
+	const { id } = req.params;
+	await db.deleteCategory(id);
+	res.redirect("/categories");
+}
 module.exports = {
 	createCategory,
 	findAllCategories,
 	showCreateCategoryForm,
 	updateCategory,
-	showUpdateCategoryForm
+	showUpdateCategoryForm,
+	removeCategory,
 }
