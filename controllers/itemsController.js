@@ -28,11 +28,18 @@ async function updateItem(req, res) {
 	res.redirect("/items");
 }
 
+async function removeItem(req, res) {
+	const { id } = req.params;
+	await db.deleteItem(id);
+	res.redirect("/items");
+}
+
 module.exports = {
 	findAllItems,
 	insertItem,
 	showCreateItemForm,
 	showUpdateItemForm,
 	updateItem,
+	removeItem,
 
 }

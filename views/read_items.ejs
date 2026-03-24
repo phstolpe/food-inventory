@@ -48,6 +48,9 @@
             <td><%= item.category_name %></td>
             <td>
             <a href="/items/<%= item.id %>/edit"><button>Update</button></a>
+            <form action="/items/<%= item.id %>/delete" method="POST" style="display:inline;">
+              <button type=submit>Delete</button>
+            </form>
           </td>
 
           </tr>

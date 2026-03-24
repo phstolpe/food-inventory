@@ -25,7 +25,9 @@ async function insertItem(name, category_id) {
 async function updateItem(id, newName) {
 	await pool.query("UPDATE items SET name = $1 WHERE id = $2", [newName, id]);
 }
-async function deleteItem(name) { }
+async function deleteItem(id) {
+	await pool.query("DELETE FROM items where id = $1", [id]);
+}
 
 module.exports = {
 	getCategories,
